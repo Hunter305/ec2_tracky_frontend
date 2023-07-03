@@ -331,12 +331,9 @@ const SideBar = (Props) => {
                     var about = e.target.value;
 
                     if (about.length < 300) {
-                      const res = await axios.post(
-                        "https://avinashs.online/api/auth/setAbout",
-                        {
-                          about,
-                        }
-                      );
+                      const res = await axios.post("/api/auth/setAbout", {
+                        about,
+                      });
                       if (res.status === 200) {
                         auth.setBio(res.data.data.bio);
                         globalContext.showSnackBar(res.data.message, {
@@ -346,12 +343,9 @@ const SideBar = (Props) => {
                       }
                     } else {
                       about = about.substring(0, 300);
-                      const res = await axios.post(
-                        "https://avinashs.online/api/auth/setAbout",
-                        {
-                          about,
-                        }
-                      );
+                      const res = await axios.post("/api/auth/setAbout", {
+                        about,
+                      });
                       if (res.status === 200) {
                         auth.setBio(res.data.data.bio);
                         globalContext.showSnackBar(res.data.message, {

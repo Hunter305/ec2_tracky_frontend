@@ -171,10 +171,7 @@ export default function Dashboard(props) {
                 }}
                 onClick={() => {
                   axios
-                    .post(
-                      "https://avinashs.online/api/docs/create",
-                      newDocument
-                    )
+                    .post("/api/docs/create", newDocument)
                     .then((res) => {
                       const data = res.data;
                       if (data.status === 200) {

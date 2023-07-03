@@ -32,7 +32,7 @@ export default class MyUploadAdapter {
     // integration to choose the right communication channel. This example uses
     // a POST request with JSON as a data structure but your configuration
     // could be different.
-    xhr.open("POST", "https://avinashs.online/api/auth/upload", true);
+    xhr.open("POST", "/api/auth/upload", true);
     xhr.responseType = "json";
   }
 

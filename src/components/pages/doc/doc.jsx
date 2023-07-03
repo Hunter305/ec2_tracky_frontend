@@ -81,7 +81,7 @@ export default function Doc(props) {
 
   function createCommit(id, message, content, cb) {
     axios
-      .post(`https://avinashs.online/api/docs/create/commit`, {
+      .post(`/api/docs/create/commit`, {
         docId: id,
         message,
         content,
@@ -177,7 +177,7 @@ export default function Doc(props) {
       }
     } else if (commit.commiter) {
       axios
-        .post(`https://avinashs.online/api/base/getUser`, {
+        .post(`/api/base/getUser`, {
           email: commit.commiter,
         })
         .then((res) => {

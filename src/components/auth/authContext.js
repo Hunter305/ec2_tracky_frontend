@@ -43,10 +43,9 @@ export default function AuthContextProvider(props) {
 
   async function gAuthResponse(res) {
     try {
-      const serverResponse = await axios.post(
-        "https://avinashs.online/api/auth/login",
-        { token: res.tokenId }
-      );
+      const serverResponse = await axios.post("/api/auth/login", {
+        token: res.tokenId,
+      });
       const { data } = serverResponse;
 
       if (data.status === 200 || data.status === 201) {
@@ -123,7 +122,7 @@ export default function AuthContextProvider(props) {
     try {
       if (e) e.preventDefault();
       axios
-        .post("https://avinashs.online/api/auth/logout")
+        .post("/api/auth/logout")
         .then((res) => {
           if (res.data.status === 200) {
             setUser({});
@@ -161,7 +160,7 @@ export default function AuthContextProvider(props) {
   const autoLogin = () => {
     try {
       axios
-        .post("https://avinashs.online/api/auth/login_with_cookie")
+        .post("/api/auth/login_with_cookie")
         .then((res) => {
           const { data } = res;
           if (data.status === 200) {

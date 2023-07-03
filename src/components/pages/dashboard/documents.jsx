@@ -276,7 +276,7 @@ function Document(props) {
       }));
     } else {
       axios
-        .post(`https://avinashs.online/api/base/getUser`, {
+        .post(`/api/base/getUser`, {
           email: doc.owner,
         })
         .then((res) => {
@@ -291,7 +291,7 @@ function Document(props) {
     }
 
     axios
-      .post("https://avinashs.online/api/base/getUsers", {
+      .post("/api/base/getUsers", {
         users: doc.others,
       })
       .then((res) => {
@@ -498,12 +498,9 @@ function Document(props) {
                               }));
                             } else {
                               axios
-                                .post(
-                                  `https://avinashs.online/api/base/getUser`,
-                                  {
-                                    email: commit.commiter,
-                                  }
-                                )
+                                .post(`/api/base/getUser`, {
+                                  email: commit.commiter,
+                                })
                                 .then((res) => {
                                   setState((state) => ({
                                     ...state,
@@ -633,13 +630,10 @@ function Document(props) {
                                         color="error"
                                         onClick={() => {
                                           axios
-                                            .post(
-                                              "https://avinashs.online/api/docs/delete/commit",
-                                              {
-                                                docId: doc.id,
-                                                commitId: commit.id,
-                                              }
-                                            )
+                                            .post("/api/docs/delete/commit", {
+                                              docId: doc.id,
+                                              commitId: commit.id,
+                                            })
                                             .then((res) => {
                                               const data = res.data;
                                               if (data.status === 200) {

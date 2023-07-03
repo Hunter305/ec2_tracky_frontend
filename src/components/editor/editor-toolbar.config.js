@@ -348,7 +348,7 @@ function MentionLinks(editor) {
 
 function getUsers() {
   return new Promise((resolve) => {
-    axios.post("https://avinashs.online/api/base/getAllUsers").then((res) => {
+    axios.post("/api/base/getAllUsers").then((res) => {
       const newData = res.data.data.map((user) => {
         return {
           ...user,
